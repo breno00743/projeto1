@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimento de Juros Simples</title>
+    <script>
+        function calcularRendimento() {
+            let saldo = parseFloat(document.getElementById("saldo").value); 
+            let taxa = parseFloat(document.getElementById("taxa").value); 
+
+          
+            let rendimento1 = saldo * (1 + (taxa / 100) * 1); 
+            let rendimento2 = saldo * (1 + (taxa / 100) * 2); 
+            let rendimento3 = saldo * (1 + (taxa / 100) * 3); 
+
+           
+            document.getElementById("mes1").textContent = "Rendimento após 1 mês: R$ " + rendimento1.toFixed(2);
+            document.getElementById("mes2").textContent = "Rendimento após 2 meses: R$ " + rendimento2.toFixed(2);
+            document.getElementById("mes3").textContent = "Rendimento após 3 meses: R$ " + rendimento3.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <label for="saldo">Informe seu saldo: </label>
+    <input type="text" id="saldo"><br>
+    
+    <label for="taxa">Informe a taxa de juros (%): </label>
+    <input type="text" id="taxa"><br>
+    
+    <input type="button" value="Calcular Rendimento" onclick="calcularRendimento()"><br><br>
+    
+    <h3>Resultados:</h3>
+    <p id="mes1"></p>
+    <p id="mes2"></p>
+    <p id="mes3"></p>
+</body>
+</html>

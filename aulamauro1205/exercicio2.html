@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovação de Nota</title>
+    <script>
+        function verificarNota() {
+            let nota = parseFloat(document.getElementById("nota").value); 
+            let resultado = document.getElementById("resultado");
+            
+            if (nota < 6) {
+                resultado.textContent = "Reprovado"; 
+            } else {
+                resultado.textContent = "Aprovado"; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="nota">Informe sua nota: </label>
+    <input type="text" id="nota">
+    <input type="button" value="Verificar" onclick="verificarNota()"><br>
+    <p id="resultado"></p>
+</body>
+</html>

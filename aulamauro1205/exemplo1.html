@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo</title>
+    <script>
+        
+        function limpar() {
+            document.getElementById("entrada").value = ""; 
+            document.getElementById("saida").textContent = ""; 
+        }
+        
+        function mostrar() {
+            const texto = document.getElementById("entrada").value; 
+            document.getElementById("saida").textContent = texto; 
+        }
+
+        window.onload = function() {
+            document.getElementById("limpar").onclick = limpar;
+            document.getElementById("mostrar").onclick = mostrar;
+        };
+    </script>
+</head>
+<body>
+    <input type="text" id="entrada"><br>
+    <input type="button" id="limpar" value="Limpar">
+    <input type="button" id="mostrar" value="Mostrar"><br>
+    <p id="saida"></p>
+</body>
+</html>

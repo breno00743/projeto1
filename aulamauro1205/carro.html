@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<script>
+    
+    let carro = {
+        nome: "",
+        ano: "",
+        cor: "",
+        velocidade: 0,
+        acelerar: function() {
+            this.velocidade += 3;
+            exibirVelocidade();
+        },
+        frear: function() {
+            if (this.velocidade > 2) {
+                this.velocidade -= 2;
+                exibirVelocidade();
+            }
+            else{
+                this.velocidade = 0;
+                exibirVelocidade();
+            }
+        }
+    };
+
+    function exibirVelocidade() {
+        document.getElementById('velocidade').innerText = "Velocidade: " + carro.velocidade + " km/h";
+    }
+
+    function atualizarCarro() {
+        carro.nome = document.getElementById('nomedocarro').value;
+        carro.ano = document.getElementById('ano').value;
+        carro.cor = document.getElementById('cor').value;
+        carro.velocidade = 0; 
+        exibirVelocidade();
+    }
+
+    window.onload = function() {
+        document.getElementById('acelerar').addEventListener('click', function() {
+            carro.acelerar();
+        });
+
+        document.getElementById('frear').addEventListener('click', function() {
+            carro.frear();
+        });
+
+        document.getElementById('atualizar').addEventListener('click', atualizarCarro);
+    };
+</script>
+<body>
+    <h1>Exercicio do Carro</h1>
+
+    <label for="nomedocarro">Nome do Carro:</label>
+    <input type="text" id="nomedocarro" placeholder="Digite o nome do carro"><br>
+
+    <label for="ano">Ano do Carro:</label>
+    <input type="text" id="ano" placeholder="Digite o ano do carro"><br>
+
+    <label for="cor">Cor do Carro:</label>
+    <input type="text" id="cor" placeholder="Digite a cor do carro"><br>
+
+    <input type="button" id="atualizar" value="Criar Carro"><br><br>
+
+   
+    <input type="button" id="acelerar" value="Acelerar">
+    <input type="button" id="frear" value="Frear"><br>
+
+    <h3 id="velocidade">Velocidade: 0 km/h</h3>
+
+</body>
+</html>
